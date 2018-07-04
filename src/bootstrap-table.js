@@ -2526,7 +2526,11 @@
             data = data[this.options.dataField];
         } else if (!$.isArray(data)) { // support fixedScroll
             fixedScroll = data.fixedScroll;
-            data = data.data;
+            if (data.data == undefined){//Modified by John Lee 03/07/2018 
+                data = data[this.options.dataField];
+            }else{          
+                data = data.data;
+            }
         }
 
         this.initData(data);
